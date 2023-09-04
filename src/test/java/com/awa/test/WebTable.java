@@ -19,7 +19,7 @@ public class WebTable {
 
         Thread.sleep(3000);
         //orangeHRM.selectEmployee("Nargesh");
-        orangeHRM.deleteEmployee("Dong");
+        orangeHRM.deleteEmployee("Amit");
 
     }
 

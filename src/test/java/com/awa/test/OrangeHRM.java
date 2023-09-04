@@ -38,15 +38,17 @@ public class OrangeHRM {
         empCheckBox.click();
     }
 
-    public void deleteEmployee(String empName) {
+    public void deleteEmployee(String empName) throws Exception{
         //1. identify the number of duplicate records of any particular empName
         //2. we need  loop to delete (totalNumber-1) duplicate records
         String deleteButtonXPath = "//div[normalize-space(text())='" + empName + "']/following::button[1]";
         List<WebElement> dupEmployeeDeleteButtonsList = DriverManager.driver.findElements(By.xpath(deleteButtonXPath));
         for (int i = 0; i < dupEmployeeDeleteButtonsList.size()-1; i++) {
+            dupEmployeeDeleteButtonsList = DriverManager.driver.findElements(By.xpath(deleteButtonXPath));
             dupEmployeeDeleteButtonsList.get(i).click();
             WebElement deleteConfirmationButton = DriverManager.driver.findElement(By.xpath("//button[normalize-space() = 'Yes, Delete']"));
             deleteConfirmationButton.click();
+            Thread.sleep(4000);
         }
     }
 
